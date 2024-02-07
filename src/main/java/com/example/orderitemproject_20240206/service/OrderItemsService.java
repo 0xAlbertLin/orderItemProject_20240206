@@ -51,28 +51,19 @@ public class OrderItemsService {
         return orderItemsRepository.findAll();
     }
 
-
-
-
-
-
-
-//    public Optional<OrderItemsEntity> findOrderById(UUID id) {
-//        return orderItemsRepository.findById(id);
-//    }
-
-
-
+    // 更新訂單數量與價格
     public CustomResponse updateOrderQuantityAndPrice(UUID id, Integer quantity, Integer price) {
         orderItemsRepository.updateOrderQuantityAndPriceById(id, quantity, price, LocalDateTime.now());
         return new CustomResponse("The order Quantity And Price has been update");
     }
 
+    // 更新訂單名稱
     public CustomResponse updateOrderName(UUID id, String itemName) {
         orderItemsRepository.updateOrderName(id, itemName, LocalDateTime.now());
         return new CustomResponse("The order Name has been update");
     }
 
+    // 刪除訂單
     public CustomResponse deleteOrder(UUID id) {
         orderItemsRepository.deleteById(id);
         return new CustomResponse("The order Name has been delete");
