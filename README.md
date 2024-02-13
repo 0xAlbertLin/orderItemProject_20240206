@@ -36,3 +36,47 @@ Ans: <br>
  ![image](https://github.com/0xAlbertLin/orderItemProject_20240206/assets/46127917/4bbefe83-18b4-4ac4-85fa-28bb1280a49a)
  ![image](https://github.com/0xAlbertLin/orderItemProject_20240206/assets/46127917/cb6a6eba-52b8-4e03-9c63-df30d5fc6d1e)
 
+Q2: Explain the potential problems in the following program and how to resolve them.
+ ```
+ public class Sample {
+  public static void main(String[] args) {
+   List<Shape> list = new ArrayList<>();
+   list.add(new Rectangle());
+   list.add(new Circle());
+   for (Shape s: list) {
+    new GraphicEditor().drawShape(s);
+   }
+  }
+ }
+
+ class Shape {
+  int type;
+ }
+
+ class Rectangle extends Shape {
+  Rectangle() {
+   super.type = 1;
+  }
+ }
+ 
+ class Circle extends Shape {
+  Circle() {
+   super.type = 2;
+  }
+ }
+ 
+ class GraphicEditor {
+  public void drawShape(Shape s) {
+   if (s.type == 1)
+    drawRectangle(s);
+   else if (s.type == 2)
+    drawCircle(s);
+  }
+  public void drawCircle(Circle r) {
+   // drawCircle
+  }
+  public void drawRectangle(Rectangle r) {
+   // drawRectangle
+  }
+ }
+```
