@@ -80,11 +80,73 @@ Q2: Explain the potential problems in the following program and how to resolve t
   }
  }
 ```
-Ans: 
-應該可以使用多型的方式進行撰寫，接收到父類參數，在運行時決定使用哪個子類來實現，
-後續若有更多形狀的繪圖需求，只需要繼承shape和實現draw method即可
-且程式碼會有因為類型錯誤造成無法編譯的問題
-在調用drawRectangle或是drawCircle之前，需要確認shape object的實際類型，再轉換成正確的類型。
-但即使解決了此問題還是違反物件導向的多型的特性
-![image](https://github.com/0xAlbertLin/orderItemProject_20240206/assets/46127917/80eef278-d6b5-4796-b092-a5983866aba0)
+Ans: <br>
+＊Compile Time Problem： <br>
+ 1.因為 GraphicEditor.drawShape() 基於多型，故參數為Shape；需修改程式，才會使編譯成功。
+ ```
+    if (s.type == 1)
+      drawRectangle((Rectangle)s);
+    else if (s.type == 2)
+      drawCircle((Circle)s);
+ ```
+＊Design Issue： <br>
+ 1.將 Shape.type 修改為 final 避免 type 被修改且一定要賦予資料，如下：
+ ```
+  class Shape {
+    final int type;
+   Shape(int type){
+    this.type = type;
+   }
+  }
+  class Rectangle extends Shape {
+    Rectangle() {
+      super(1);
+    }
+  }
+  class Circle extends Shape {
+    Circle() {
+      super(2);
+    }
+  }
+ ```
+ 2.若Rectangle、Circle 如範例僅作為「常數」，可再進一步修改如下： 
+ ```
+ public class Sample {
+  public static void main(String[] args) {
+   List<Shape> list = new ArrayList<>();
+   list.add(Shape.Rectangle);
+   list.add(Shape.Circle);
+   for (Shape s: list) {
+    new GraphicEditor().drawShape(s);
+   }
+  }
+ }
+
+ enum Shape {
+  Rectangle(1),Circle(2);
+  int type;
+  Shape(int type){
+   this.type = type;
+  }
+ }
+
+ class GraphicEditor {
+  public void drawShape(Shape s) {
+    switch (s) {
+     case Rectangle:
+      drawRectangle(s);
+      break;
+     case Circle:
+      drawCircle(s);
+      break;    
+    }
+  }
+  public void drawCircle(Shape r) {
+   // drawCircle
+  }
+  public void drawRectangle(Shape r) {
+   // drawRectangle
+  }
+ }
+```
 
