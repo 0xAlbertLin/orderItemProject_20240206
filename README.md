@@ -80,3 +80,11 @@ Q2: Explain the potential problems in the following program and how to resolve t
   }
  }
 ```
+Ans: 
+應該可以使用多型的方式進行撰寫，接收到父類參數，在運行時決定使用哪個子類來實現，
+後續若有更多形狀的繪圖需求，只需要繼承shape和實現draw method即可
+且程式碼會有因為類型錯誤造成無法編譯的問題
+在調用drawRectangle或是drawCircle之前，需要確認shape object的實際類型，再轉換成正確的類型。
+但即使解決了此問題還是違反物件導向的多型的特性
+![image](https://github.com/0xAlbertLin/orderItemProject_20240206/assets/46127917/80eef278-d6b5-4796-b092-a5983866aba0)
+
