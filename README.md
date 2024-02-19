@@ -10,6 +10,7 @@ Q1: Implement the simple RESTful API for managing an order list. The APIs includ
  6. Delete a specific order item.
 
 Ans: <br>
+ 以下解答皆有Junit可以進行測試.
  1.<br>
  ![image](https://github.com/0xAlbertLin/orderItemProject_20240206/assets/46127917/9aa6cf86-2552-408f-bdb7-5943f00ee271).
  ![image](https://github.com/0xAlbertLin/orderItemProject_20240206/assets/46127917/50b886e0-d5f3-404b-8852-876387796d58).
