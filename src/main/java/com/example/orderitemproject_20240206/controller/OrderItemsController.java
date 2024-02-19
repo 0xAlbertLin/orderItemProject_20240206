@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import com.example.orderitemproject_20240206.service.OrderItemsService;
+import com.example.orderitemproject_20240206.services.OrderItemsService;
 
 import java.util.List;
 import java.util.UUID;

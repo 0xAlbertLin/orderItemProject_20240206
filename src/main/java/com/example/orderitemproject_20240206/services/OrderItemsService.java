@@ -1,4 +1,4 @@
-package com.example.orderitemproject_20240206.service;
+package com.example.orderitemproject_20240206.services;
 
 import com.example.orderitemproject_20240206.dto.response.CustomResponse;
 import com.example.orderitemproject_20240206.dto.response.RetrieveOrder;
